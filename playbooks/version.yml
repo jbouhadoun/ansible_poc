@@ -1,0 +1,6 @@
+- name: Exemple de tâche Ansible
+  hosts: my_servers
+  become: true
+  tasks:
+    - name: Exécuter une commande sur les machines
+      command: echo "Hello, World!"
