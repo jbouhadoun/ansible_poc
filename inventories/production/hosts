@@ -1,0 +1,7 @@
+[gpu_servers]
+ocsge-gpu1 ansible_host=10.0.18.39
+ocsge-gpu2 ansible_host=10.0.18.113
+ocsge-gpu3 ansible_host=10.0.81.159
+ocsge-gpu4 ansible_host=10.0.82.173
+ocsge-gpu5 ansible_host=10.0.82.231
+ocsge-gpu6 ansible_host=10.0.80.103

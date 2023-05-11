@@ -1,5 +1,5 @@
 - name: Exemple de tâche Ansible
-  hosts: my_servers
+  hosts: gpu_servers
   become: true
   tasks:
     - name: Exécuter une commande sur les machines

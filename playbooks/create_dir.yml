@@ -1,0 +1,12 @@
+---
+- name: Create directory and modify environment variables
+  hosts: gpu_servers
+  become: true
+  
+  tasks:
+    - name: Create directory
+      file:
+        path: /var/data/store-ocsge/depose/ressources/model-smp
+        state: directory
+        mode: '0777'
+
