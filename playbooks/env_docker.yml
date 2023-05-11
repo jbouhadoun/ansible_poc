@@ -9,5 +9,5 @@
     - name: Copy file
       copy:
         remote_src: yes
-        src: /path/to/source/file
-        dest: /path/to/destination/file
+        src: /var/data/env_docker_file
+        dest: /var/data/env_docker_file
