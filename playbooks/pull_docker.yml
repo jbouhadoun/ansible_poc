@@ -1,26 +1,14 @@
-- name: Pull Docker images from Harbor
-  hosts: gpu_servers
+- name: Pull Docker image from registry
+  hosts: docker-host
   become: true
   vars:
-    harbor_host: sldp09i3.gra7.container-registry.ovh.net/poc-ocsge
-    harbor_username: myuser
-    harbor_password: mypassword
-    harbor_images:
-      - name: ocsge
-        tag: poc343v3
-        registry: "{{ harbor_host }}"
-      - name: odeon
-        tag: 2.1.7
-        registry: "{{ harbor_host }}"
+    registry: sldp09i3.gra7.container-registry.ovh.net/poc-ocsge
   tasks:
-    - name: Login to Harbor
-      harbor_login:
-        username: "{{ harbor_username }}"
-        password: "{{ harbor_password }}"
-        host: "{{ harbor_host }}"
-    - name: Pull Docker images from Harbor
-      docker_image:
-        name: "{{ item.name }}"
-        tag: "{{ item.tag }}"
-        source: "{{ item.registry }}"
-      loop: "{{ harbor_images }}"
+    - name: Log in to registry
+      shell: cat /home/harbor/pw| docker login {{ registry }} --username svc_ocsge --password-stdin
+
+    - name: Pull Docker image ocsge
+      shell: docker pull {{ registry }}/ocsge:poc343v3
+
+    - name: Pull Docker image odeon
+      shell: docker pull {{ registry }}/odeon:2.1.7
