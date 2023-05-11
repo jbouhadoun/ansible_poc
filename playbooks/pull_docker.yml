@@ -4,6 +4,19 @@
   vars:
     registry: sldp09i3.gra7.container-registry.ovh.net/poc-ocsge
   tasks:
+
+
+    - name: Create directory harbor
+      file:
+        path: /home/harbor
+        state: directory
+        mode: '0777'
+        
+    - name: Copy pw
+      copy:
+        src: /home/harbor/pw
+        dest: /home/harbor/pw
+
     - name: Log in to registry
       shell: cat /home/harbor/pw| docker login {{ registry }} --username poc-ocsge --password-stdin
 
