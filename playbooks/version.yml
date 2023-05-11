@@ -1,6 +1,8 @@
-- name: Exemple de tâche Ansible
+- name: Afficher le nom et l'OS de chaque machine
   hosts: gpu_servers
-  become: true
+  gather_facts: true
+
   tasks:
-    - name: Exécuter une commande sur les machines
-      command: echo "Hello, World!"
+    - name: Afficher le nom et l'OS de la machine
+      debug:
+        msg: "Nom de la machine : {{ inventory_hostname }}, OS : {{ ansible_distribution }} {{ ansible_distribution_version }}"
