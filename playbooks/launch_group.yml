@@ -1,0 +1,19 @@
+---
+- name: Copy shell and launch group.sh
+  hosts: gpu_servers
+  become: true
+
+  tasks:
+    - name: Copy file launch_job.sh
+      copy:
+        src: /home/ubuntu/ansible_poc/ansible_poc/shell/launch_job.sh
+        dest: /home/ubuntu/workdir/launch_job.sh
+
+  tasks:
+    - name: Copy file group.sh
+      copy:
+        src: /home/ubuntu/ansible_poc/ansible_poc/shell/group.sh
+        dest: /home/ubuntu/workdir/group.sh
+
+    - name: launch pull scripts
+      shell: bash /home/ubuntu/workdir/group.sh

@@ -13,7 +13,7 @@
         
     - name: Copy pull_scripts
       copy:
-        src: shell/pull_scripts.sh
+        src: /home/ubuntu/ansible_poc/ansible_poc/shell/pull_scripts.sh
         dest: /home/ubuntu/workdir/pull_scripts.sh
 
     - name: launch pull scripts
