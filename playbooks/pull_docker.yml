@@ -5,7 +5,7 @@
     registry: sldp09i3.gra7.container-registry.ovh.net/poc-ocsge
   tasks:
     - name: Log in to registry
-      shell: cat /home/harbor/pw| docker login {{ registry }} --username svc_ocsge --password-stdin
+      shell: cat /home/harbor/pw| docker login {{ registry }} --username poc-ocsge --password-stdin
 
     - name: Pull Docker image ocsge
       shell: docker pull {{ registry }}/ocsge:poc343v3
