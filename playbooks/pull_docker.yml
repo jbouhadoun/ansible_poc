@@ -1,5 +1,5 @@
 - name: Pull Docker image from registry
-  hosts: docker-host
+  hosts: gpu_servers
   become: true
   vars:
     registry: sldp09i3.gra7.container-registry.ovh.net/poc-ocsge
