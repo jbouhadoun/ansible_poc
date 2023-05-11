@@ -4,9 +4,23 @@
   become: true
   
   tasks:
-    - name: Create directory
+    - name: Create directory depose
       file:
         path: /var/data/store-ocsge/depose/ressources/model-smp
         state: directory
         mode: '0777'
+  
+    - name: Create directory log
+      file:
+        path: /var/log/ocsge/
+        state: directory
+        mode: '0777'
 
+    - name: Create directory dalles_detections
+      file:
+        path: /var/tmp/dalles_detection
+        state: directory
+        mode: '0777'
+    
+
+  
