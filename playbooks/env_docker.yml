@@ -2,10 +2,12 @@
 - name: Copy env_docker_file to all hosts
   hosts: gpu_servers
   become: true
+
   
   tasks:
-    - name: Copy env_docker_file
+  tasks:
+    - name: Copy file
       copy:
-        src: /var/data/env_docker_file
-        dest: /var/data/env_docker_file
-        mode: '0777'
+        remote_src: yes
+        src: /path/to/source/file
+        dest: /path/to/destination/file
