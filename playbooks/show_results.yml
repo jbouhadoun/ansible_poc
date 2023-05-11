@@ -1,4 +1,3 @@
-
 - name: Afficher le contenu d'un fichier sur la cible dans le master
   hosts: gpu_servers
   become: true
@@ -18,7 +17,9 @@
         src: "{{ found_file.files[0].path }}"
         dest: /home/ubuntu/workdir/results/test.log
         flat: yes
+      register: result
+
 
     - name: Rename file with hostname
       command: "mv /home/ubuntu/workdir/results/test.log /home/ubuntu/workdir/results/{{ inventory_hostname }}.log"
-      when: result is succeeded
+      when: result.changed
