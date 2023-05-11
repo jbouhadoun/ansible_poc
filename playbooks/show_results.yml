@@ -1,7 +1,8 @@
-name: Afficher le contenu d'un fichier sur la cible dans le master
+
+- name: Afficher le contenu d'un fichier sur la cible dans le master
   hosts: gpu_servers
   become: true
-  
+
   tasks:
 
     - name: Trouver le chemin du fichier group*.txt
