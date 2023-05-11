@@ -1,0 +1,11 @@
+---
+- name: Copy env_docker_file to all hosts
+  hosts: gpu_servers
+  become: true
+  
+  tasks:
+    - name: Copy env_docker_file
+      copy:
+        src: /var/data/env_docker_file
+        dest: /var/data/env_docker_file
+        mode: '0777'
