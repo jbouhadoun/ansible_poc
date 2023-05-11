@@ -1,4 +1,3 @@
-- 
 name: Afficher le contenu d'un fichier sur la cible dans le master
   hosts: gpu_servers
   become: true
