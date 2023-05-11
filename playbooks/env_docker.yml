@@ -3,11 +3,8 @@
   hosts: gpu_servers
   become: true
 
-  
-  tasks:
   tasks:
     - name: Copy file
       copy:
-        remote_src: yes
         src: /var/data/env_docker_file
         dest: /var/data/env_docker_file
