@@ -1,0 +1,24 @@
+- 
+name: Afficher le contenu d'un fichier sur la cible dans le master
+  hosts: gpu_servers
+  become: true
+  
+  tasks:
+
+    - name: Trouver le chemin du fichier group*.txt
+      find:
+        paths: /var/tmp
+        patterns: dalles_detection_temps_grou*.log
+        recurse: no
+        file_type: file
+      register: found_file
+
+    - name: Copier le fichier de la cible vers le master
+      fetch:
+        src: "{{ found_file.files[0].path }}"
+        dest: /home/ubuntu/workdir/results/test.log
+        flat: yes
+
+    - name: Rename file with hostname
+      command: "mv /home/ubuntu/workdir/results/test.log /home/ubuntu/workdir/results/{{ inventory_hostname }}.log"
+      when: result is succeeded
