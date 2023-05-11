@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run --env-file /var/data/env_docker_ocsge -v /var/log/ocsge:/mount_log:rw -v /var/data/store-ocsge:/mount_data:rw -v /var/tmp:/mount_tmp_calcul:rw --rm sldp09i3.gra7.container-registry.ovh.net/poc-ocsge/ocsge:poc343v3 script_cloud  pull_scripts -n D083 -m 2020 -c UNET_FEV11 -nm D083 -mo 2020 -nz var_cloud_v2

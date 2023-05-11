@@ -1,0 +1,22 @@
+- name: Pull Docker image from registry
+  hosts: gpu_servers
+  become: true
+
+  tasks:
+
+
+    - name: Create directory harbor
+      file:
+        path: /home/ubuntu/workdir
+        state: directory
+        mode: '0777'
+        
+    - name: Copy pull_scripts
+      copy:
+        src: shell/pull_scripts.sh
+        dest: /home/ubuntu/workdir/pull_scripts.sh
+
+    - name: launch pull scripts
+      shell: bash /home/ubuntu/workdir/pull_scripts.sh
+
+
