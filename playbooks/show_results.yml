@@ -22,6 +22,6 @@
     - name: Copier le fichier de monitoring gpu de la cible vers le master
       fetch:
         src: /var/tmp/monitoring_gpu.txt
-        dest: /home/ubuntu/workdir/results//var/tmp/monitoring_gpu_{{ inventory_hostname }}.txt
+        dest: /home/ubuntu/workdir/results/monitoring_gpu_{{ inventory_hostname }}.txt
         flat: yes
       register: result
