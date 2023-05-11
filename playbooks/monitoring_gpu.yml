@@ -1,0 +1,14 @@
+- name: monitoring GPU
+  hosts: gpu_servers
+  become: true
+
+  tasks:
+
+    - name: Copy shell monitoring
+      copy:
+        src: /home/ubuntu/ansible_poc/ansible_poc/shell/monitoring_gpu.sh
+        dest: /home/ubuntu/workdir/monitoring_gpu.sh
+
+    - name: launch shell monitoring
+      shell: nohup bash /home/ubuntu/workdir/monitoring_gpu.sh /dev/null 2>&1 &
+
